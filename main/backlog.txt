@@ -1,0 +1,23 @@
+TODO
+=================================
+Find a case for arduino
+Deploy docker with ELK in AWS
+Connect arduino to Wifi
+Code sensors push to cloud
+Code android app to consume data from AWS
+
+
+
+IN PROGRESS
+=================================
+Connect the 3 Moisture sensors
+Better setup cables in breadboard
+
+
+
+DONE
+=================================
+Connect temperature and humidity sensor
+Connect OLED display 
+
+

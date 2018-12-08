@@ -45,10 +45,13 @@ void clearDisplayBuffer() {
 }
 
 void printSensorsMetricsToOLEDDisplay() {
+  int sensorValue = analogRead(32);
+  
   display.setTextSize(1);
   display.println("T: ");
   display.setTextSize(2);
-  display.println(sht30.cTemp);
+  //display.println(sht30.cTemp);
+  display.println(sensorValue);
 
   display.setTextSize(1);
   display.println("H: ");
