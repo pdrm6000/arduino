@@ -1,4 +1,11 @@
+Lolin D32
 https://www.youtube.com/watch?v=P66SnzOCwnM
 https://www.youtube.com/watch?v=yZjpYmWVLh8
 http://forum.hobbycomponents.com/viewtopic.php?t=2462
+
+Moisture sensor
 http://www.esp32learning.com/code/esp32-and-soil-moisture-sensor-example.php
+https://media.digikey.com/pdf/Data%20Sheets/DFRobot%20PDFs/SEN0193_Web.pdf
+
+Display
+https://cdn-learn.adafruit.com/downloads/pdf/adafruit-gfx-graphics-library.pdf	

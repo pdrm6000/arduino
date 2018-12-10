@@ -1,11 +1,11 @@
 TODO
 =================================
-Find a case for arduino
+Find a case for arduino and everything else
 Deploy docker with ELK in AWS
 Connect arduino to Wifi
 Code sensors push to cloud
 Code android app to consume data from AWS
-
+Get a proper battery
 
 
 IN PROGRESS
