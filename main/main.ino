@@ -4,10 +4,16 @@
 #include <WEMOS_SHT3X.h>
 #include <WorkShop_Logos.h>
 #include <TimeLib.h>
+#include <WiFi.h>
+
+//WiFi
+const char* ssid     = "pynet";
+const char* password = "pdrm6000";
 
 // Configure OLED display
 #define OLED_RESET 0  // GPIO0
 Adafruit_SSD1306 display(OLED_RESET);
+
 // Configure STH30 sensor I2C address
 SHT3X sht30(0x45);
 int sensorToPrint = 1;
@@ -15,22 +21,15 @@ int sensorToPrint = 1;
 void setup() {
 
   Serial.begin(115200);
-
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+  connectToWifi(ssid, password);
 
 }
 
 void loop() {
   
   clearDisplayBuffer();
-
-  if(sht30.get()==0){
-    printSensorsMetricsToOLEDDisplay();
-  }
-  else
-  {
-    display.println("Error trying to get STH30 values!");
-  }
+  printMetrics();
   
   display.display();
   delay(1000);
@@ -44,6 +43,16 @@ void clearDisplayBuffer() {
   display.setRotation(1);
   display.setCursor(0, 0);
   display.setTextColor(WHITE);
+}
+
+void printMetrics(){
+  if(sht30.get()==0){
+    printSensorsMetricsToOLEDDisplay();
+  }
+  else
+  {
+    display.println("Error trying to get STH30 values!");
+  }
 }
 
 void printSensorsMetricsToOLEDDisplay() {
@@ -84,5 +93,28 @@ void printSensorsMetricsToOLEDDisplay() {
     display.setTextSize(1);
   }
   */
+  
+}
+
+void connectToWifi(const char* ssid, const char* password) {
+  Serial.println();
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+  
+  WiFi.begin(ssid, password);
+  
+  display.setCursor(0, 60);
+  display.setTextColor(WHITE);
+  
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("");
+  Serial.println("WiFi connected");  
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
   
 }
