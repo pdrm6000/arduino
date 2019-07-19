@@ -61,21 +61,29 @@ void printSensorsMetricsToOLEDDisplay() {
   float sensorValue2 = analogRead(33) / 100.0f;
   float sensorValue3 = analogRead(34) / 100.0f;
 
-  char buf[7];
-  snprintf (buf, 7, "Sen. %d:", sensorToPrint);
+  //char buf[7];
+  //snprintf (buf, 7, "%d:", sensorToPrint);
 
-  display.println(buf);
-  display.setTextSize(2);
-  if (sensorToPrint == 1)
-    display.println(sensorValue1, 1);
-  else if (sensorToPrint == 2)
-    display.println(sensorValue2, 1);
-  else
-  {
-    display.println(sensorValue3, 1);
-    sensorToPrint = 0;
-  }
-  sensorToPrint++;
+  //display.println(buf);
+  //display.setTextSize(1);
+  //if (sensorToPrint == 1)
+    //display.println(sensorValue1, 1);
+  //else if (sensorToPrint == 2)
+    //display.println(sensorValue2, 1);
+  //else
+  //{
+    //display.println(sensorValue3, 1);
+    //sensorToPrint = 0;
+  //}
+  //sensorToPrint++;
+
+  display.setTextSize(1);
+  display.print("1:");
+  display.println(sensorValue1, 1);
+  display.print("2:");
+  display.println(sensorValue2, 1);
+  display.print("3:");
+  display.println(sensorValue3, 1);
 
   display.setTextSize(1);
   display.println("");
